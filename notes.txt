@@ -5,3 +5,5 @@ https://git-scm.com/downloads
 Create account:
 
 https://github.com
+
+Git will help in source code management
