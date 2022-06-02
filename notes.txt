@@ -7,3 +7,8 @@ Create account:
 https://github.com
 
 Git will help in source code management
+
+Core Java
+SQL
+Servlets And JSP
+Spring Boot
