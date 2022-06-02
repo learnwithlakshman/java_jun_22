@@ -12,3 +12,16 @@ Core Java
 SQL
 Servlets And JSP
 Spring Boot
+
+
+Data types:
+
+byte
+short
+int
+float
+double
+long
+
+char
+boolean
