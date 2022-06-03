@@ -1,0 +1,11 @@
+Data types:
+
+byte = 0
+short = 0
+int =0
+float = 0.0f
+double = 0.0d
+long   = 0L
+
+char   \u0000
+boolean false
