@@ -9,7 +9,6 @@ public class DiscountCalWithIfElse {
 			System.out.println("Enter the bill amount :");
 			float billAmount = sc.nextFloat();
 			float discount = 0;
-
 			if (billAmount > 1000) {
 				discount = billAmount * 0.1f;
 			}else {
