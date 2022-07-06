@@ -1,5 +1,7 @@
 package com.careerit.cj.day19;
 
+import java.io.Serializable;
+
 // Functional Interface
 
 interface Sample{
@@ -38,7 +40,7 @@ interface Three{
 	void m3();
 }
 
-interface Four extends One,Two,Three{
+interface Four extends One,Two,Three,Cloneable,Serializable{
 	
 }
 
