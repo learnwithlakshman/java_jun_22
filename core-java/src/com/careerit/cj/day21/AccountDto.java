@@ -8,7 +8,6 @@ public class AccountDto {
 	private double interestRate;
 	private double emiAmount;
 	public AccountDto(int id, String name, double loanAmount, int loanTerm, double interestRate, double emiAmount) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.loanAmount = loanAmount;
