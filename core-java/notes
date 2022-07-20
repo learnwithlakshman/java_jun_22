@@ -54,7 +54,11 @@ class
  
  
  
+ JDBC assignment:
  
+ 1. Get empno,name,job,salary,dname,location of all the employee 
+ 2. Get empno,name,manager_name,dname,salary of all the employee
+ 3. Get dname,count_employee,total_amount of all the departments
  
  
  
