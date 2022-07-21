@@ -60,7 +60,9 @@ class
  2. Get empno,name,manager_name,dname,salary of all the employee
  3. Get dname,count_employee,total_amount of all the departments
  
+ postgresql notes:
  
+ https://www.postgresqltutorial.com/
  
  
  
