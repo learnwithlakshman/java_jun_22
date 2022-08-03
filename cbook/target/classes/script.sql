@@ -4,3 +4,5 @@ CREATE TABLE contact(id SERIAL PRIMARY KEY,name VARCHAR(250),email VARCHAR(250),
 insert into app_user(user_name,password) values('admin','admin@1234');
 insert into contact(name,email,mobile) values('Krish','krish@gmail.com','9876543210');
 insert into contact(name,email,mobile) values('Manoj','manoj@gmail.com','9876543211');
+
+select * from contact;
