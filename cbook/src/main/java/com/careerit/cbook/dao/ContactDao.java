@@ -6,7 +6,7 @@ import com.careerit.cbook.domain.Contact;
 
 public interface ContactDao {
 
-		Contact selectContact(Contact contact);
+		Contact insertContact(Contact contact);
 		Contact selectContact(Long id);
 		List<Contact> search(String str);
 		List<Contact> selectContacts();

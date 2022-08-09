@@ -14,7 +14,7 @@ public class ContactDaoImpl implements ContactDao {
 
 	private final String ALL_CONTACTS = "select id, name, email, mobile from contact";
 
-	public Contact selectContact(Contact contact) {
+	public Contact insertContact(Contact contact) {
 		// TODO Auto-generated method stub
 		return null;
 	}

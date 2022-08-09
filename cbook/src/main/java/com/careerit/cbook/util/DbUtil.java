@@ -11,6 +11,14 @@ import java.util.Properties;
 public final class DbUtil {
 	
 	private static Properties properties;
+	
+	static {
+		try {
+			Class.forName("org.postgresql.Driver");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	private DbUtil() {
 		
 	}
