@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,34 +26,28 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 float-right">
-					<a class="btn btn-primary" href="addcontact.jsp">Add New Contact</a>
-			</div>
-			<div class="col-md-8 offset-md-2">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>id</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Mobile</th>
-							<th>Edit</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${contacts}" var="contact">
-							<tr>
-								<td>${contact.id}</td>
-								<td>${contact.name}</td>
-								<td>${contact.email}</td>
-								<td>${contact.mobile}</td>
-								<td><a href="editcontct?id=${contact.id}"><i class="fa fa-edit"></i></a></td>
-								<td><a href="editcontct?id=${contact.id}"><i class="fa fa-trash"></i></a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+
+			<div class="col-md-6 offset-md-3">
+
+				<form action="login" method="post">
+					
+						<div class="text-center text-info"><h3>Login</h3></div>
+						<div class="mb-3">
+							<label for="username" class="form-label">Username </label> <input
+								type="text" class="form-control" id="username" name="username"
+								placeholder="Enter valid username">
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Password </label> <input
+								type="password" class="form-control" id="password" name="password"
+								placeholder="Enter valid password">
+						</div>
+						<div class="mb-3">
+							<input type="submit" value="Login" class="btn btn-primary">
+						</div>
+
+					
+				</form>
 
 			</div>
 
@@ -62,4 +55,3 @@
 	</div>
 </body>
 </html>
-

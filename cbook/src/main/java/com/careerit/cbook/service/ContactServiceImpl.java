@@ -10,8 +10,8 @@ public class ContactServiceImpl implements ContactService{
 
 	private ContactDao contactDao = new ContactDaoImpl();
 	public Contact addContact(Contact contact) {
-		// TODO Auto-generated method stub
-		return null;
+		// Validation 
+		return contactDao.insertContact(contact);
 	}
 
 	public Contact getContact(Long id) {

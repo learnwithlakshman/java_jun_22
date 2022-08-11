@@ -26,4 +26,24 @@
     <servlet-name>AddContactServlet</servlet-name>
     <url-pattern>/addcontact</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddColorsCartServlet</display-name>
+    <servlet-name>AddColorsCartServlet</servlet-name>
+    <servlet-class>com.careerit.cbook.controller.AddColorsCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddColorsCartServlet</servlet-name>
+    <url-pattern>/addtocartservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.careerit.cbook.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

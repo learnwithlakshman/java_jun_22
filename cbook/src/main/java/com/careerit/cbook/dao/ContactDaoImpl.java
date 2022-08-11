@@ -1,6 +1,7 @@
 package com.careerit.cbook.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,10 +14,32 @@ import com.careerit.cbook.util.DbUtil;
 public class ContactDaoImpl implements ContactDao {
 
 	private final String ALL_CONTACTS = "select id, name, email, mobile from contact";
+	private final String ADD_CONTACT = "insert into contact(name,email,mobile) values(?,?,?)";
 
 	public Contact insertContact(Contact contact) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = DbUtil.getConnection();
+			pst = con.prepareStatement(ADD_CONTACT,Statement.RETURN_GENERATED_KEYS);
+			pst.setString(1, contact.getName());
+			pst.setString(2, contact.getEmail());
+			pst.setString(3, contact.getMobile());
+		    pst.executeUpdate();
+			try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	            	Long id = generatedKeys.getLong(1);
+	            	System.out.println("Contact is added with id :"+id);
+	                contact.setId(id);
+	            }
+	            else {
+	                throw new SQLException("Creating user failed, no ID obtained.");
+	            }
+	        }
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return contact;
 	}
 
 	public Contact selectContact(Long id) {

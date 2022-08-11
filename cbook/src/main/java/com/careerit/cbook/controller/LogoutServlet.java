@@ -1,28 +1,24 @@
 package com.careerit.cbook.controller;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
-import com.careerit.cbook.domain.Contact;
-import com.careerit.cbook.service.ContactService;
-import com.careerit.cbook.service.ContactServiceImpl;
-
 /**
- * Servlet implementation class AddContactServlet
+ * Servlet implementation class LogoutServlet
  */
-public class AddContactServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
-	private ContactService contactService = new ContactServiceImpl();
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddContactServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,16 +28,11 @@ public class AddContactServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			String name = request.getParameter("name");
-			String email = request.getParameter("email");
-			String mobile = request.getParameter("mobile");
-			Contact contact = new Contact();
-			contact.setEmail(email);
-			contact.setMobile(mobile);
-			contact.setName(name);
-			contactService.addContact(contact);
-			response.sendRedirect("homepage");
-			
+		HttpSession session = request.getSession();
+		if(!session.isNew()) {
+			session.invalidate();
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 	/**

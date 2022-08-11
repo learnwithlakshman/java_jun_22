@@ -30,7 +30,7 @@
 
 				<form action="addcontact" method="post">
 					
-						<div class="text-center text-info"><h3>Login</h3></div>
+						<div class="text-center text-info"><h3>Add New Contact</h3></div>
 						<div class="mb-3">
 							<label for="name" class="form-label">Name </label> <input
 								type="text" class="form-control" id="name" name="name"

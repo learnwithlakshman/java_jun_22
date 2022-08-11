@@ -11,12 +11,13 @@
 	rel="stylesheet"
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<nav class="navbar bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30"
+				src="images/contact-icon.png" alt="" width="30"
 				height="24" class="d-inline-block align-text-top"> CBook
 			</a>
 		</div>
@@ -27,29 +28,31 @@
 		<div class="row">
 
 			<div class="col-md-6 offset-md-3">
-
-				<form action="login" method="post">
+				<a href="logout">Logout</a>	
+				<form action="addtocartservlet" method="post">
 					
-						<div class="text-center text-info"><h3>Login</h3></div>
+						
 						<div class="mb-3">
-							<label for="username" class="form-label">Username </label> <input
-								type="text" class="form-control" id="username" name="username"
-								placeholder="Enter valid username">
+							<label for="username" class="form-label">Username </label> 
+							<select class="form-control" name="scolor">
+									<option value="green">Green</option>
+									<option value="red">Red</option>
+									<option value="yellow">Yellow</option>
+									<option value="pink"> Pink</option>
+									
+							</select>
 						</div>
+					
 						<div class="mb-3">
-							<label for="password" class="form-label">Password </label> <input
-								type="password" class="form-control" id="password" name="password"
-								placeholder="Enter valid password">
-						</div>
-						<div class="mb-3">
-							<input type="submit" value="Login" class="btn btn-primary">
+							<input type="submit" value="Submit" class="btn btn-primary">
 						</div>
 
 					
 				</form>
 
 			</div>
-
+			<hr/>
+			${cartitems }
 		</div>
 	</div>
 </body>
