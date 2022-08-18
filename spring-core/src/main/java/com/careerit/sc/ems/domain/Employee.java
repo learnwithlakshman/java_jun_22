@@ -1,4 +1,4 @@
-package com.careerit.sc.di;
+package com.careerit.sc.ems.domain;
 
 import lombok.*;
 
