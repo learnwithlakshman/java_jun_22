@@ -33,6 +33,23 @@ public class EmployeeController {
         log.info("Employee is update with id {}",updatedEmployee.getEmpno());
         return updatedEmployee;
     }
-
-
+    @GetMapping("/search")
+    public List<Employee> search(@RequestParam("str") String str){
+        List<Employee> searchList = employeeService.search(str);
+        return searchList;
+    }
+    @GetMapping("/empdetails/{empno}")
+    public Employee getEmployee(@PathVariable Long empno){
+        Employee employee = employeeService.getEmployee(empno);
+        return employee;
+    }
+    @DeleteMapping("/{empno}")
+    public String deleteEmployee(@PathVariable Long empno){
+        boolean flag = employeeService.deleteEmployee(empno);
+        if(flag){
+            return "Employee is deleted with id:"+empno;
+        }else{
+            return "Employee is not found with the given id:"+empno;
+        }
+    }
 }

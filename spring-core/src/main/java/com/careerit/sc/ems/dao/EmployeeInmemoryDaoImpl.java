@@ -2,21 +2,22 @@ package com.careerit.sc.ems.dao;
 
 import com.careerit.sc.ems.domain.Employee;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Repository
+@Repository("empInMemory")
 @Slf4j
-public class EmployeeDaoImpl implements EmployeeDao {
+public class EmployeeInmemoryDaoImpl implements EmployeeDao {
 
     private List<Employee> employeeList;
 
-    public EmployeeDaoImpl() {
+    public EmployeeInmemoryDaoImpl() {
         employeeList = new ArrayList<>();
         employeeList.add(new Employee(1001L, "Krish", 35000));
         employeeList.add(new Employee(1003L, "Manoj", 85000));
@@ -32,7 +33,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
     @Override
     public Employee selectEmployee(Long id) {
-        return null;
+        Optional<Employee> optEmp = employeeList.stream().filter(e -> e.getEmpno().longValue() == id.longValue()).findFirst();
+        return  optEmp.orElseThrow(()->new IllegalArgumentException("Employee is not found with given id"));
     }
 
     @Override
@@ -43,12 +45,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public List<Employee> search(String str) {
-        return null;
+        return employeeList.stream()
+                .filter(e->e.getName().toLowerCase().contains(str.toLowerCase()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public boolean deleteEmployee(Long id) {
-        return false;
+        Optional<Employee> optEmp = employeeList.stream().filter(e -> e.getEmpno().longValue() == id.longValue()).findFirst();
+        if(optEmp.isPresent()){
+            Employee obj = optEmp.get();
+            employeeList.remove(obj);
+            return true;
+        }else{
+            log.info("Employee is not found with id :{}",id);
+            return false;
+        }
     }
 
     @Override

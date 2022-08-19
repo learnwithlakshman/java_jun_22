@@ -1,9 +1,9 @@
 package com.careerit.sc.ems.service;
 
 import com.careerit.sc.ems.dao.EmployeeDao;
-import com.careerit.sc.ems.dao.EmployeeDaoImpl;
 import com.careerit.sc.ems.domain.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -22,8 +22,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployee(Long id) {
-        return null;
+    public Employee getEmployee(Long empno) {
+        return employeeDao.selectEmployee(empno);
     }
 
     @Override
@@ -33,12 +33,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> search(String str) {
-        return null;
+        Assert.hasText(str,"Search string can't be empty or null");
+        return employeeDao.search(str);
     }
 
     @Override
-    public boolean deleteEmployee(Long id) {
-        return false;
+    public boolean deleteEmployee(Long empno) {
+        return employeeDao.deleteEmployee(empno);
     }
 
     @Override
