@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.io.File;
 import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -45,5 +46,20 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployee(Employee employee) {
         return employeeDao.updateEmployee(employee);
+    }
+
+    @Override
+    public List<Employee> addEmployees(List<Employee> employeeList) {
+        return null;
+    }
+
+    @Override
+    public List<Employee> importEmployees(File file) {
+        return null;
+    }
+
+    @Override
+    public File exportEmployees() {
+        return null;
     }
 }
