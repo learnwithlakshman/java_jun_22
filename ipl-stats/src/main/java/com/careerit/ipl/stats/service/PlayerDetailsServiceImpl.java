@@ -1,6 +1,4 @@
 package com.careerit.ipl.stats.service;
-
-import com.careerit.ipl.stats.IplStatsApplication;
 import com.careerit.ipl.stats.domain.PlayerDetails;
 import com.careerit.ipl.stats.repository.PlayerDetailsRepo;
 import com.opencsv.CSVReader;
